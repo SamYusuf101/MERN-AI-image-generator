@@ -15,6 +15,8 @@ const Post = () => {
 
   const handleSubmit = () => {};
 
+  const generateImg = () => {};
+
   const handleChange = (e) => {};
 
   const handleSurpriseMe = () => {};
@@ -65,9 +67,23 @@ const Post = () => {
               <img
                 src={preview}
                 alt="preview"
-                className="w-9/12 h-9/12 object-contain opacity-400"
+                className="w-9/12 h-9/12 object-contain opacity-40"
               />
             )}
+            {imgGeneration && (
+              <div
+                className="absolute inset-0 z-0 flex justify-center items-center 
+              bg-[rgba(0,0,0,0.5)] rounded-lg"
+              >
+                <Loader />
+              </div>
+            )}
+          </div>
+
+          <div className="mt-5 flex gap-5">
+            <button type="button" onClick={generateImg}>
+              {generateImg ? "Generating..." : "Generate"}
+            </button>
           </div>
         </div>
       </form>
