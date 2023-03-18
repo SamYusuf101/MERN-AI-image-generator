@@ -81,8 +81,25 @@ const Post = () => {
           </div>
 
           <div className="mt-5 flex gap-5">
-            <button type="button" onClick={generateImg}>
-              {generateImg ? "Generating..." : "Generate"}
+            <button
+              type="button"
+              onClick={generateImg}
+              className="font-semibold text-xs bg-green-400 py-1 px-2  outline-none rounded-[5px] text-black
+              w-full sm:w-auto"
+            >
+              {imgGeneration ? "Generating..." : "Generated"}
+            </button>
+          </div>
+          <div className="mt-10">
+            <p className="mt-2 text-[#666e75] text-[14px]">
+              You can share the image you created with others in the community
+            </p>
+            <button
+              type="submit"
+              className="mt-4  text-sm text-center w-full justify-center bg-blue-600 py-1 px-2  outline-none rounded-[5px] text-white
+             sm:w-auto"
+            >
+              {loading ? "sharing" : " share with the community"}
             </button>
           </div>
         </div>
