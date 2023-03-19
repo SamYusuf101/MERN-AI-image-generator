@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { preview } from "../../assets";
 import { Loader, Forms } from "../../components";
+import { getRandomPrompt } from "../../utils";
 
 const Post = () => {
   const Navigate = useNavigate();
@@ -17,9 +18,14 @@ const Post = () => {
 
   const generateImg = () => {};
 
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-  const handleSurpriseMe = () => {};
+  const handleSurpriseMe = () => {
+    const randomPrompt = getRandomPrompt(form.prompt);
+    setForm({ ...form, prompt: randomPrompt });
+  };
 
   return (
     <section className="max-w-7xl mx-auto">
