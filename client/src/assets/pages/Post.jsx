@@ -14,7 +14,32 @@ const Post = () => {
   const [imgGeneration, setImgGeneration] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = () => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (form.prompt && form.photo) {
+      setLoading(true);
+
+      try {
+        const response = await fetch("http://localhost:8080/api/v1/post", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        });
+
+        await response.json();
+        Navigate("/");
+      } catch (err) {
+        alert(err);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      alert("Please enter a prompt and generate an image");
+    }
+  };
 
   const generateImg = async () => {
     if (form.prompt) {
@@ -30,7 +55,7 @@ const Post = () => {
 
         const data = await response.json();
 
-        setForm({ ...form, photo: `data:image/jpeg;base64,$ {data.photo}` });
+        setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
       } catch (error) {
         alert(error);
       } finally {
@@ -114,7 +139,7 @@ const Post = () => {
               className="font-semibold text-xs bg-green-400 py-1 px-2  outline-none rounded-[5px] text-black
               w-full sm:w-auto"
             >
-              {imgGeneration ? "Generating..." : "Generated"}
+              {imgGeneration ? "Generating..." : "Generate"}
             </button>
           </div>
           <div className="mt-10">
