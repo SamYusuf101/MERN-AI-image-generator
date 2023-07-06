@@ -1,6 +1,6 @@
 # Project Description
 
-An AI-image generator web-app integrated with DALLE api. It allows users auto generate random images using different prompts. Cloudinary is used to save pictures.
+An AI-image generator web-app integrated with DALLE api. It allows users auto generate random images using different prompts and share with the community. Cloudinary is used to save pictures.
 
 # Screenshots
 ![dalle](client/public/dalle1.png)
