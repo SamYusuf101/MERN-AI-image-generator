@@ -12,7 +12,7 @@ An AI-image generator web-app integrated with DALLE api. It allows users auto ge
 
 Clone this repository
 
-git clone https://github.com/SamYusuf101/Netflix-re-design.git
+git clone git@github.com:SamYusuf101/MERN-AI-image-generator.git
 
 ## Install packages
 
